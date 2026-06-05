@@ -1,9 +1,17 @@
 {
   "appId": "com.nokhpaty.app",
-  "appName": "nokhpaty-app-ios",
+  "appName": "نخبتي",
   "webDir": "www",
   "server": {
     "url": "https://www.nokhpaty.com",
-    "cleartext": true
+    "cleartext": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": true,
+      "backgroundColor": "#ffffff",
+      "showSpinner": false
+    }
   }
 }
