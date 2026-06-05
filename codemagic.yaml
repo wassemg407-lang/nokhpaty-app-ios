@@ -7,12 +7,11 @@ workflows:
 
     scripts:
       - npm install
-      - npm install @capacitor/core @capacitor/cli
 
-      # 👇 مهم جدًا: نرجع sync بس بطريقة آمنة
-      - npx cap sync ios
+      # ❌ شيل Capacitor sync نهائيًا من السيرفر
+      # - npx cap sync ios
 
-      # 👇 بناء iOS الحقيقي
+      # ✔ بس بنبني iOS مباشرة
       - cd ios/App
       - xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -sdk iphoneos build
 
