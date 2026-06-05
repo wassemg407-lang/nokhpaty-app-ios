@@ -6,7 +6,6 @@ workflows:
 
     scripts:
       - npm install
-      - npm run build || echo "no build script"
       - npx cap sync ios
       - npx cap copy ios
 
