@@ -1,11 +1,12 @@
 workflows:
   ios-workflow:
     name: iOS Build
+
     environment:
       node: latest
 
     scripts:
-      - npm install
+      - npm ci
       - npm install @capacitor/core @capacitor/cli
       - npx cap sync ios
       - cd ios/App && pod install
