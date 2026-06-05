@@ -1,19 +1,15 @@
 workflows:
   ios-workflow:
     name: iOS Build
-
     environment:
-      node: 18
+      node: latest
 
     scripts:
       - npm install
-
-      # ❌ شيل Capacitor sync نهائيًا من السيرفر
-      # - npx cap sync ios
-
-      # ✔ بس بنبني iOS مباشرة
-      - cd ios/App
-      - xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -sdk iphoneos build
+      - npm install @capacitor/core @capacitor/cli
+      - npx cap sync ios
+      - cd ios/App && pod install
+      - cd ../..
 
     artifacts:
-      - ios/App/build/**/*.app
+      - ios/App/build/ios/ipa/*.ipa
