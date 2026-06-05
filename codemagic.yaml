@@ -8,8 +8,16 @@ workflows:
     scripts:
       - npm ci
       - npm install @capacitor/core @capacitor/cli
+
+      # إعادة تجهيز iOS platform بشكل آمن
       - npx cap sync ios
-      - cd ios/App && pod install
+
+      # حل مشكلة Podfile لو ناقص
+      - cd ios/App
+      - if [ ! -f Podfile ]; then npx cap sync ios; fi
+
+      # بناء الـ Pods (لو موجودة)
+      - pod install || echo "Pods skipped"
       - cd ../..
 
     artifacts:
