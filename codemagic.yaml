@@ -3,8 +3,12 @@ workflows:
     name: iOS Build
     environment:
       node: latest
+
     scripts:
       - npm install
+      - npm run build || echo "no build script"
       - npx cap sync ios
+      - npx cap copy ios
+
     artifacts:
       - ios/App/build/ios/ipa/*.ipa
