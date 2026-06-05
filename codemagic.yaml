@@ -1,0 +1,10 @@
+workflows:
+  ios-workflow:
+    name: iOS Build
+    environment:
+      node: latest
+    scripts:
+      - npm install
+      - npx cap sync ios
+    artifacts:
+      - ios/App/build/ios/ipa/*.ipa
