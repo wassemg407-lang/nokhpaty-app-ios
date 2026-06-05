@@ -1,12 +1,14 @@
 workflows:
   ios-workflow:
     name: iOS Build
+
     environment:
       node: latest
-scripts:
-  - npm install
-  - npm run build || echo "no frontend build script"
-  - npx cap sync ios
-  
+
+    scripts:
+      - npm install
+      - npm run build || echo "no frontend build script"
+      - npx cap sync ios
+
     artifacts:
       - ios/App/build/ios/ipa/*.ipa
