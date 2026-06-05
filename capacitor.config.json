@@ -1,0 +1,9 @@
+{
+  "appId": "com.nokhpaty.app",
+  "appName": "nokhpaty-app-ios",
+  "webDir": "www",
+  "server": {
+    "url": "https://www.nokhpaty.com",
+    "cleartext": true
+  }
+}
