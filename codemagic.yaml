@@ -8,9 +8,8 @@ workflows:
     scripts:
       - npm ci
       - npm install @capacitor/core @capacitor/cli
+      - npx cap add ios
       - npx cap sync ios
-      - cd ios/App && pod install
-      - cd ../..
 
     artifacts:
       - ios/App/build/ios/ipa/*.ipa
