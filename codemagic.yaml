@@ -7,9 +7,9 @@ workflows:
 
     scripts:
       - npm install
+      - npm install @capacitor/core @capacitor/cli
 
-      # نشغّل Capacitor مباشرة بدون npx
-      - node ./node_modules/@capacitor/cli/bin/cap.js sync ios
+      # ❌ نشيل cap sync خالص من السيرفر
 
     artifacts:
       - ios/App/build/ios/ipa/*.ipa
