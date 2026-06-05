@@ -7,8 +7,8 @@ workflows:
 
     scripts:
       - npm install
-      - npm run build || echo "no frontend build script"
-      - npx cap sync ios
+      - npm install @capacitor/cli @capacitor/core
+      - npx cap sync ios || node node_modules/@capacitor/cli/bin/cap.js sync ios
 
     artifacts:
       - ios/App/build/ios/ipa/*.ipa
