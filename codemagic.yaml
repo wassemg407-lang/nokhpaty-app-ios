@@ -3,12 +3,12 @@ workflows:
     name: iOS Build
 
     environment:
-      node: latest
+      node: 18
 
     scripts:
       - npm install
       - npm install @capacitor/cli @capacitor/core
-      - npx cap sync ios || node node_modules/@capacitor/cli/bin/cap.js sync ios
+      - npx cap sync ios
 
     artifacts:
       - ios/App/build/ios/ipa/*.ipa
