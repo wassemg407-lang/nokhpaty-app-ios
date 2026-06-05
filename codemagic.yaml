@@ -4,21 +4,22 @@ workflows:
 
     environment:
       node: latest
+      xcode: latest
 
     scripts:
       - npm ci
       - npm install @capacitor/core @capacitor/cli
 
-      # إعادة تجهيز iOS platform بشكل آمن
+      # تجهيز Capacitor
       - npx cap sync ios
 
-      # حل مشكلة Podfile لو ناقص
+      # الدخول لمشروع iOS
       - cd ios/App
-      - if [ ! -f Podfile ]; then npx cap sync ios; fi
 
-      # بناء الـ Pods (لو موجودة)
-      - pod install || echo "Pods skipped"
+      # Build فعلي (ده المهم اللي كان ناقص عندك)
+      - xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -sdk iphoneos build
+
       - cd ../..
 
     artifacts:
-      - ios/App/build/ios/ipa/*.ipa
+      - ios/App/build/**/*.app 
